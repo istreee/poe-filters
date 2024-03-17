@@ -2011,11 +2011,24 @@ Show
 	MinimapIcon 2 Yellow Circle
 	CustomAlertSound "gucci_sounds/amethystring.mp3" 300
 
+#Show
+#	Class "Shield"
+#	BaseEvasion < 1
+#	BaseArmour < 1
+#	BaseEnergyShield < 1
+#	AreaLevel <= 99
+#	Rarity Rare
+#	SetTextColor 0 0 0
+#	SetBorderColor 255 0 0
+#	SetBackgroundColor 225 225 110
+#	SetFontSize 45
+#	MinimapIcon 2 Yellow Circle
+#	CustomAlertSound "gucci_sounds/rareshield.mp3" 300
+
+# always show minion shields
 Show
 	Class "Shield"
-#	BaseEvasion < 1
-	BaseArmour < 1
-	BaseEnergyShield < 1
+	BaseType "Bone Spirit Shield" "Ivory Spirit Shield" "Fossilised Spirit Shield"
 	AreaLevel <= 99
 	Rarity Rare
 	SetTextColor 0 0 0
@@ -2024,9 +2037,11 @@ Show
 	SetFontSize 45
 	MinimapIcon 2 Yellow Circle
 	CustomAlertSound "gucci_sounds/rareshield.mp3" 300
+
+# show normal rare wands up to act 2
 Show
 	Class "Wand"
-	AreaLevel <= 99
+	AreaLevel <= 23
 	Rarity Rare
 	SetTextColor 0 0 0
 	SetBorderColor 255 0 0
@@ -2034,16 +2049,29 @@ Show
 	SetFontSize 45
 	MinimapIcon 2 Yellow Circle
 	CustomAlertSound "gucci_sounds/rarewand.mp3" 300
+
+# always show minion wands
 Show
-	Class "Sceptre"
-	AreaLevel >= 23
+	Class "Wand"
+	AreaLevel <= 99
+	BaseType "Calling Wand" "Convening Wand" "Convoking Wand"
 	Rarity Rare
 	SetTextColor 0 0 0
 	SetBorderColor 255 0 0
 	SetBackgroundColor 225 225 110
 	SetFontSize 45
 	MinimapIcon 2 Yellow Circle
-	CustomAlertSound "gucci_sounds/rareweapon.mp3" 300
+	CustomAlertSound "gucci_sounds/rarewand.mp3" 300
+#Show
+#	Class "Sceptre"
+#	AreaLevel >= 23
+#	Rarity Rare
+#	SetTextColor 0 0 0
+#	SetBorderColor 255 0 0
+#	SetBackgroundColor 225 225 110
+#	SetFontSize 45
+#	MinimapIcon 2 Yellow Circle
+#	CustomAlertSound "gucci_sounds/rareweapon.mp3" 300
 
 
 #Safety Blocks (Don't need to modify these for normal use)
@@ -2571,17 +2599,17 @@ Hide
 ############## Section 1 - Chance, Priority Highlight, Link Options ###############
 ###################################################################################
 #Set your preferred chance basetype(s) here.
-Show
-	BaseType "Branded Kite Shield"
-	Rarity Normal
-	HasInfluence None
-	Corrupted False
-	FracturedItem False
-	Mirrored False
-	Sockets < 6
-	SetBorderColor 200 80 0
-	ItemLevel >= 45
-	SetFontSize 36
+#Show
+#	BaseType "Branded Kite Shield"
+#	Rarity Normal
+#	HasInfluence None
+#	Corrupted False
+#	FracturedItem False
+#	Mirrored False
+#	Sockets < 6
+#	SetBorderColor 200 80 0
+#	ItemLevel >= 45
+#	SetFontSize 36
 
 #Favorite Maps - replace these with your favorites. Keep in mind this highlighting will be used for shaper/elder maps of those basetypes as well.
 #Show
@@ -2697,6 +2725,34 @@ Show
 	SetFontSize 45
 	PlayAlertSound 1 100
 	MinimapIcon 0 Green Pentagon
+
+# fast weapons for leapslam
+Show
+	Class "axe"
+	BaseType "Rusted Hatchet" "Boarding Axe"
+	AreaLevel <= 25
+	LinkedSockets >= 2
+	Rarity Normal Magic Rare
+	SocketGroup RG GR
+#	SetBackgroundColor 40 50 60
+	SetBackgroundColor 60 70 80
+	SetFontSize 45
+	PlayAlertSound 1 100
+	MinimapIcon 0 Green Pentagon
+
+Show
+	Class "sword"
+	BaseType "Rusted Sword" "Copper Sword" "Sabre"
+	AreaLevel <= 25
+	LinkedSockets >= 2
+	Rarity Normal Magic Rare
+	SocketGroup RG GR
+#	SetBackgroundColor 40 50 60
+	SetBackgroundColor 60 70 80
+	SetFontSize 45
+	PlayAlertSound 1 100
+	MinimapIcon 0 Green Pentagon
+
 #offhand weapon links for shield charge (Disabled by default as of v3.12.0)
 #Show
 #	Class "Shield"
